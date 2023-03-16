@@ -26,3 +26,6 @@ rows = run_query("SELECT * from mytable;")
 # Print results.
 for row in rows:
     st.write(f"{row[0]} has a :{row[1]}:")
+
+df = pd.DataFrame(rows, columns=conn.cursor().description)
+st.dataframe(df, use_container_width=True)
